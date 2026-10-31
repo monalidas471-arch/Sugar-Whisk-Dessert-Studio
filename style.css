@@ -1,184 +1,238 @@
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;600;700&display=swap');
-
-:root {
-    --bg-cream: #FFFDF9;
-    --primary-pink: #FF85A1;
-    --accent-dark-pink: #FF5A80;
-    --soft-yellow: #FFF3B0;
-    --text-dark: #4A3E3D;
-    --card-bg: #FFFFFF;
-}
+/* --- 1. FONTS & GLOBAL SETUP --- */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Nunito', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--bg-cream);
-    color: var(--text-dark);
+  font-family: 'Nunito', sans-serif;
+  color: #59464B;           /* Deep ink text */
+  background: #FFF8F0;      /* Cream background */
+  line-height: 1.7;
 }
 
-/* Header & Navigation */
+h1, h2, h3, .logo {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --- 2. FLOATING BACKGROUND SPARKLES --- */
+.float-decoration {
+  position: fixed;
+  z-index: -1;
+  opacity: 0.55;
+  font-size: 34px;
+}
+.sparkle-1 { top: 18%; left: 3%; color: #FFB4A2; }
+.sparkle-2 { top: 68%; right: 4%; color: #D4C5F9; }
+.sparkle-3 { bottom: 8%; left: 7%; color: #B8E6D5; }
+
+/* --- 3. HEADER & NAVIGATION --- */
 header {
-    background-color: #FFE5EC;
-    padding: 18px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  background: rgba(255, 248, 240, 0.96);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  box-shadow: 0 4px 20px rgba(95, 65, 70, 0.08);
+}
+
+.header-wrapper {
+  max-width: 1180px;
+  margin: auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-    font-family: 'Fredoka', cursive;
-    font-size: 28px;
-    color: var(--accent-dark-pink);
-    text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 28px;
+  color: #8B5964;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
 }
 
 nav a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: var(--text-dark);
-    font-weight: 700;
-    transition: color 0.3s;
+  padding: 10px 16px;
+  border-radius: 25px;
+  font-weight: 800;
+  color: #59464B;
+  transition: 0.25s;
 }
 
 nav a:hover, nav a.active {
-    color: var(--accent-dark-pink);
+  background: #FFD4C4;
+  color: #8B5964;
 }
 
-/* Layout Containers */
-.container {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
+/* --- 4. HERO SECTION WITH BLOB SHAPE --- */
+.hero-wrapper {
+  background: linear-gradient(135deg, #FFF0E9, #F5EFFF 55%, #E9F8F1);
+  overflow: hidden;
+  padding: 70px 28px;
 }
 
-/* Hero Section */
 .hero {
-    background: linear-gradient(rgba(255, 194, 209, 0.75), rgba(255, 194, 209, 0.75)), 
-                url('https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-    text-align: center;
-    padding: 100px 20px;
-    border-radius: 20px;
-    margin-bottom: 40px;
-    color: #FFF;
+  max-width: 1180px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 35px;
 }
 
-.hero h1 {
-    font-family: 'Fredoka', cursive;
-    font-size: 48px;
-    margin-bottom: 15px;
-    text-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+.hero-content h1 {
+  font-size: 52px;
+  color: #8B5964;
+  margin-bottom: 20px;
+  line-height: 1.12;
 }
 
-.hero p {
-    font-size: 20px;
-    margin-bottom: 25px;
-    font-weight: 600;
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 28px;
+  color: #6E575D;
 }
 
+/* The iconic template blob image shape */
+.hero-image img {
+  width: 100%;
+  max-width: 480px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 48% 52% 42% 58% / 48% 42% 58% 52%;
+  box-shadow: 18px 18px 0 #FFD4C4;
+}
+
+/* --- 5. BUTTONS --- */
 .btn {
-    display: inline-block;
-    background-color: var(--accent-dark-pink);
-    color: white;
-    padding: 12px 28px;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
+  display: inline-block;
+  border: 0;
+  border-radius: 30px;
+  padding: 13px 25px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: 0.25s;
 }
 
-.btn:hover {
-    background-color: #E04368;
+.btn-primary {
+  background: #8B5964;
+  color: white;
+  box-shadow: 0 5px 0 #68414A;
 }
 
-/* Grids & Cards */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+.btn-primary:hover {
+  transform: translateY(-3px);
+  background: #A76C78;
+}
+
+/* --- 6. GRIDS & CARDS --- */
+.container {
+  max-width: 1150px;
+  margin: auto;
+  padding: 68px 24px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
 }
 
 .card {
-    background: var(--card-bg);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
-    border: 2px solid #FFE5EC;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
+  background: white;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(93, 62, 70, 0.09);
+  transition: 0.25s;
 }
 
-.card-img {
-    width: 100%;
-    height: 190px;
-    object-fit: cover;
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(93, 62, 70, 0.14);
 }
 
-.card-body {
-    padding: 20px;
-    flex-grow: 1;
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 22px;
 }
 
 .card h3 {
-    font-family: 'Fredoka', cursive;
-    color: var(--accent-dark-pink);
-    margin-bottom: 10px;
+  font-size: 22px;
+  color: #8B5964;
+  margin-bottom: 8px;
 }
 
-.price {
-    font-weight: bold;
-    color: #2A9D8F;
-    font-size: 18px;
-    margin-top: 10px;
+.badge {
+  display: inline-block;
+  background: #B8E6D5;
+  color: #355C4D;
+  border-radius: 25px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 10px;
 }
 
-.country-flag {
-    display: inline-block;
-    background: var(--soft-yellow);
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 10px;
+/* --- 7. CONTACT FORM --- */
+.contact-layout {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(93, 62, 70, 0.09);
 }
 
-/* Forms */
-.form-group {
-    margin-bottom: 15px;
-    text-align: left;
+.contact-form label {
+  display: block;
+  font-weight: 800;
+  margin: 15px 0 5px;
+  color: #8B5964;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #F2E3E4;
+  border-radius: 14px;
+  font-family: inherit;
+  background: #FFFDFc;
 }
 
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #FFE5EC;
-    border-radius: 8px;
-    outline: none;
+.contact-form textarea {
+  min-height: 140px;
 }
 
-.form-group input:focus, .form-group textarea:focus {
-    border-color: var(--primary-pink);
-}
-
-/* Footer */
+/* --- 8. FOOTER --- */
 footer {
-    background-color: #FFE5EC;
-    text-align: center;
-    padding: 20px;
-    margin-top: 60px;
-    font-weight: bold;
+  background: #59434B;
+  color: #FFF8F0;
+  text-align: center;
+  padding: 35px 24px;
+  margin-top: 60px;
 }
